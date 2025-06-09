@@ -51,7 +51,7 @@ async def start_handler(message: types.Message):
     await message.answer(welcome_text, reply_markup=keyboard, parse_mode=ParseMode.HTML)
 
 # Listen for messages starting with "ben..."
-@dp.message(F.text.regexp(r"(?i)^ben\.\.\."))
+@dp.message(F.text.regexp(r"(?i)^ben\b"))
 async def ben_voice_reply(message: types.Message):
     try:
         voice_files = [f for f in os.listdir(VOICE_DIR) if f.endswith(".ogg")]
